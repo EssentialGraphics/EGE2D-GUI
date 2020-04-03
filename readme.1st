@@ -1,0 +1,61 @@
+EGE2D is a fast GUI library designed mainly for industrial environment and smart home, 
+but also for any application it requires a GUI, as an easier alternative to Qt for example.
+More in general it support automation in the way it supply an interfaces to devices 
+to be controlled like HMI and SCADA systems. 
+The integration is fast and easy and the same application can run on many platforms 
+like Linux,Windows,Mac,Web through browsers (so it can run also on any mobile device).
+As example a compiled implementation on the web is http://www.ege3d.it/scada/application.html.
+As target we want to complete the application in order to support also CN control systems for any pourposes.
+
+The library is based on OpenGL-ES2/3 for porting reasons. With a few effort will also run under DirectX and Metal 
+(future feature if needed). 
+Due to the nature of the application, the display image (what application user see) is calculated in CPU 
+(with low resources uses) and send to GPU card each time refresh required, keeping high frame rate (more than 24fps)
+for mouse and keyboard handling also on browsers and mobile devices.
+
+The documentation is self explained into code and we are providing progressive tutorials in order to keep simple 
+to begin and master as easier as possible and in a few time also for students. 
+(we are working on this, be patient a bit please). 
+We are interested also to be in contact with teachers if they have comments and/or suggestments.
+The idea on the ground is the application must be usefull for much users as possible.
+
+
+
+INSTALLATION DESCRIPTION (on linux)  -  (we are preparing .bat installation for windows users also, wait just a bit)
+
+1) Install dependencies as described in document "EGE2D-xxx-dependencies list.txt" according with your system
+
+2) Execute : 
+      chmod +rwx install-emscripten.sh 
+      chmod +rwx install.sh
+      chmod +rwx cmakex.sh
+      chmod +rwx cleanall.sh
+      
+      
+3) "cmakex.sh" in main folder contains toolchain that allow to switch destination platform (linux/windows/GNUvsCLang/emscripten...)
+      You should edit this file to set your desired destination. You can also leave as default to linux.
+      You can do it later if you want to recompile for another platform.      
+      
+4) Execute from terminal (if you are compiling for javascript target as set in cmakex.sh, you can skip this step in other cases):           
+      ". install-emscripten.sh"  
+
+    4.1) PS: Remember to copy "emsdk_set_env.sh" content to the end of your .bashrc config file.
+             If this is done, calling command emcc or em++ from terminal you reach the application executable and see its output. 
+
+
+5) Execute :
+      ". install.sh"   <----  be carefull to call the command as is with dot+space at the beginning if not the script miss to work 
+                              switching directory trees.
+
+6) To recompile (if you ask for)
+      "sh ./cmakex.sh" <----  doit for every sample you want to ri-compile
+      
+Thanks      
+
+(Just for your knowledge, nothing here is mandatory) I work on a gentoo linux distro where I developed 
+the application using both CLang, g++ and Emscripten, mainly. 
+The IDE environment I use is Netbeans 8.2. 
+The compilation process happens through CMake for toolchining and I succesfully tested compilation also 
+with a virtual machine (virtualbox) where I installed xubuntu 16.04. I hope this helps)
+
+We appreciate your comments, questions and suggestions at: info at ege3d dot it
